@@ -1,0 +1,16 @@
+<% if flash[:confirm] %>
+	<%= flash[:confirm] %> 
+<% end %>
+<div class="well">
+	<%= form_for @newCustomer, :url => { :action => "addMembers" } do |f| %>
+	<%= f.label(:title, "Title:") %>
+	<%= f.text_field(:title) %>
+	<%= f.label(:firstName, "First Name:") %>
+	<%= f.text_field(:firstName) %>
+	<%= f.label(:surname, "Surname:")%>
+	<%= f.text_field(:surname) %>
+	<%= f.label(:dateOfBirth, "Date of Birth:") %>
+	<%= f.date_select :dateOfBirth, :start_year => 1900, :order => [:day, :month, :year], :end_year => Time.now.year %>
+	<input name="commit" type="submit" value="New" class="btn">
+ 	<% end %>
+</div>

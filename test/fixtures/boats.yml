@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  boatName: MyString
+  births: 1
+  size: MyString
+  startMonday: false
+  startThursday: false
+  startFriday: false
+  startSaturday: false
+  startSunday: false
+
+two:
+  boatName: MyString
+  births: 1
+  size: MyString
+  startMonday: false
+  startThursday: false
+  startFriday: false
+  startSaturday: false
+  startSunday: false

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Silsden Boats</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body style="background: #EEEEEE;">
+<div class="navbar">
+	<div class="navbar-inner">
+		<a class="brand" href="/">Silsden Boats</a>
+		<ul class="nav">
+			<li><a href="/home/searching"> Searching</a></li>
+			<li><a href="/home/boatInfo">View Our Boats</a></li>
+			<li><a href="/booking/one">Book a Boat </a></li>
+		</ul>
+	</div>
+</div>
+<%= yield %>
+
+</body>
+</html>

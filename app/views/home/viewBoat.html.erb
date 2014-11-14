@@ -1,0 +1,25 @@
+<table class="table">
+	<% @boats.each do |boat| %>
+		<% boatImg = boat.boatName + ".jpg"%>
+		<% boatPlan = boat.boatName + "_plan.jpg"%>
+		<% if boat.startMonday and boat.startFriday == true %>
+			<% startDay = "Monday/Friday" %>
+		<% elsif boat.startThursday and boat.startSunday == true %>
+			<% startDay = "Thursday/Sunday" %>
+		<% elsif boat.startSaturday == true %>
+			<% startDay = "Saturday" %>
+		<% end %>
+		<div class="container well">
+			<div class="span9">
+				<h4> <%= boat.boatName %> </h4>
+				<div class="row">
+					<%= image_tag boatImg, :size=>"200x200" %>
+				</div>
+				<div class="row">
+					<% url = "/booking/one?id=" + boat.id.to_s %>
+					<%= button_to "Booking this boat", url%>
+				</div>
+			</div>
+		</div>
+	<% end %>
+</table>

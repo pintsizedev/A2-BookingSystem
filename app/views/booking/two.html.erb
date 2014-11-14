@@ -1,0 +1,36 @@
+<div class="well">
+	<% if flash[:presenceError] %>
+		<%= flash[:presenceError] %>
+	<% end %>
+	<% if flash[:phoneError] %>
+		<%= flash[:phoneError] %>
+	<% end %>
+	<% if flash[:dateError] %>
+		<%= flash[:dateError] %>
+	<% end %>
+	<%= @dateOfBirth %>
+	<%= form_for @newCustomer, :url => { :action => "three" } do |f| %>
+	<%= f.label(:title, "Title:") %>
+	<%= f.select(:title, [["Mr", "Mr"],["Mrs", "Mrs"],["Miss", "Miss"],["Ms","Ms"],["Dr","Dr"]], :prompt => "<Title>") %>
+	<%= f.label(:firstName, "First Name:") %>
+	<%= f.text_field(:firstName) %>
+	<%= f.label(:surname, "Surname:")%>
+	<%= f.text_field(:surname) %>
+	<%= f.label(:dateOfBirth, "Date of Birth:") %>
+	<%= f.date_select :dateOfBirth, :start_year => 1900, :order => [:day, :month, :year], :end_year => Time.now.year %>
+	<%= f.label(:addressLineOne, "addressLineOne:")%>
+	<%= f.text_field(:addressLineOne) %>
+	<%= f.label(:addressLineTwo, "Town/City:")%>
+	<%= f.text_field(:addressLineTwo) %>
+	<%= f.label(:addressLineThree, "County:")%>
+	<%= f.text_field(:addressLineThree) %>
+	<%= f.label(:postcode, "postcode:")%>
+	<%= f.text_field(:postcode) %>
+	<%= f.label(:telephoneNumber, "telephoneNumber:")%>
+	<%= f.text_field(:telephoneNumber) %>
+	<%= f.label(:emailAddress, "emailAddress:")%>
+	<%= f.text_field(:emailAddress) %>
+	<input name="commit" type="submit" value="New" class="btn">
+ 	<% end %>
+</div>
+

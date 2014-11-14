@@ -1,0 +1,12 @@
+<div class='well'>
+	<% @boats.each do |boat| %>	
+		<% if boat.startMonday and boat.startFriday == true %>
+			<input type="text" id="datepickerMonFri">
+		<% elsif boat.startThursday and boat.startSunday == true %>
+			<input type="text" id="datepickerThurSun">
+		<% elsif boat.startSaturday == true %>
+			<input type="text" id="datepickerSat">
+		<% end %>
+</div>
+
+<%= javascript_include_tag "app.js" %>

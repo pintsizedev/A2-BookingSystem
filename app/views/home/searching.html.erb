@@ -1,0 +1,19 @@
+<div class ="container center">
+	<% if flash[:error] %>
+		<div class="alert alert-error">
+			<%= flash[:error] %>
+		</div>
+	<% end %>
+
+	<%= form_tag("/home/search", :method => "get") do %>
+		<%= label_tag(:births, "Births:") %>
+		<%= select_tag(:births, options_for_select([["2",2],["4",4],["5",5],["7",7],["8",8],["9",9]]), :prompt => "<Number Of People>") %>
+		<%= label_tag(:startDay, "Start Day:") %>
+		<%= select_tag(:startDay, options_for_select([["Monday",1],["Thursday",2],["Friday",3],["Saturday", 4],["Sunday",5]]), :prompt => "<Start Day>") %>
+		<%= label_tag(:datepicker, "Date:") %>
+		<%= text_field_tag(:datepicker)%>
+		<br>
+		<input name="commit" type="submit" value="Search" class="btn">
+	<% end %>
+</div>
+<%= javascript_include_tag "app.js" %>

@@ -1,0 +1,25 @@
+<div class = "well" >
+<% if flash[:numberError] %>
+	<%= flash[:numberError]%>
+<%end%>
+<% if flash[:conflict] %>
+	<%= flash[:conflict]%>
+<% end %>
+<% if flash[:dateError] %>
+	<%= flash[:dateError] %>
+<% end %>
+<% if flash[:dayError] %>
+	<%= flash[:dayError] %>
+<% end %>
+<%= form_for @newBooking, :url => {:action => "two"} do |f| %>
+	<%= f.label(:boat_id, "Boat: ") %>
+	<% boats_array = Boat.all.map { |boat| [boat.boatName, boat.id] } %>
+	<% boats_array.sort! %>
+ 	<%= f.select(:boat_id, options_for_select(boats_array, flash[:boatID].to_i)) %>
+	<%= f.label(:numberInParty, "numberInParty:") %>
+	<%= f.text_field(:numberInParty) %>
+	<%= f.label(:startDate, "StartDate:") %>
+	<%= f.date_select :startDate, :order => [:day, :month, :year], :prompt => true, :start_year => Time.now.year, :end_year => Time.now.year + 3 %>
+	<input name="commit" type="submit" value="bookingTwo" class="btn">
+<% end %>
+</div>
